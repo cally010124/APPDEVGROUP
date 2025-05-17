@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home';
+import AdminLogin from './components/Auth/AdminLogin';
+import StudentLogin from './components/Auth/StudentLogin';
+import AdminCRUD from './components/Dashboard/AdminAccounts';
+import StudentList from './components/Dashboard/StudentAccounts';
+import StudentGrades from './components/Dashboard/GradeManagement';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="navbar">
+        <Link to="/">Home</Link>
+        <Link to="/admin-login">Admin Login</Link>
+        <Link to="/student-login">Student Login</Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/student-login" element={<StudentLogin />} />
+        <Route path="/admin-crud" element={<AdminCRUD />} />
+        <Route path="/student-list" element={<StudentList />} />
+        <Route path="/student-grades" element={<StudentGrades />} />
+      </Routes>
+    </Router>
   );
 }
 
