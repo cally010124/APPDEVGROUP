@@ -13,8 +13,6 @@ function App() {
     <Router>
       <div className="navbar">
         <Link to="/">Home</Link>
-        <Link to="/admin-login">Admin Login</Link>
-        <Link to="/student-login">Student Login</Link>
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
